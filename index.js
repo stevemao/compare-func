@@ -1,28 +1,27 @@
 'use strict';
 var dotProp = require('dot-prop');
-var each = require('lodash.foreach');
-var cloneDeep = require('lodash.clonedeep');
+var _ = require('lodash');
 
 function compareFunc(prop) {
   return function(a, b) {
     var retNumber = 0;
 
-    each((Array.isArray(prop) ? prop : [prop]), function(el) {
+    _.each((_.isArray(prop) ? prop : [prop]), function(el) {
       var newA;
       var newB;
 
-      if (typeof el === 'function') {
+      if (_.isFunction(el)) {
         newA = prop(a);
         newB = prop(b);
-      } else if (typeof el === 'string') {
+      } else if (_.isString(el)) {
         newA = dotProp(a, el);
         newB = dotProp(b, el);
       } else {
-        newA = cloneDeep(a);
-        newB = cloneDeep(b);
+        newA = _.cloneDeep(a);
+        newB = _.cloneDeep(b);
       }
 
-      if (typeof newA === 'string' && typeof newB === 'string') {
+      if (_.isString(newA) && _.isString(newB)) {
         retNumber = newA.localeCompare(newB);
         if (retNumber !== 0) {
           return false;
