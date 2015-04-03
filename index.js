@@ -1,7 +1,7 @@
 'use strict';
 var dotProp = require('dot-prop');
 var each = require('lodash.foreach');
-var cloneDeep = require('lodash.cloneDeep');
+var cloneDeep = require('lodash.clonedeep');
 
 function compareFunc(prop) {
   return function(a, b) {
