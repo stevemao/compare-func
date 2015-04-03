@@ -1,0 +1,48 @@
+{
+  "name": "compare-func",
+  "version": "0.0.0",
+  "description": "Get a compare function for array to sort",
+  "homepage": "https://github.com/stevemao/compare-func",
+  "author": {
+    "name": "Steve Mao",
+    "email": "maochenyan@gmail.com",
+    "url": "https://github.com/stevemao"
+  },
+  "repository": "stevemao/compare-func",
+  "license": "MIT",
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "compare-func",
+    "arr",
+    "array",
+    "by",
+    "compare",
+    "dot",
+    "get",
+    "obj",
+    "object",
+    "prop",
+    "property",
+    "sort",
+    "sorting"
+  ],
+  "dependencies": {
+    "dot-prop": "^1.0.1",
+    "lodash.clonedeep": "^3.0.0",
+    "lodash.foreach": "^3.0.2"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.8",
+    "jscs": "^1.11.3",
+    "jshint": "^2.6.3",
+    "mocha": "*"
+  },
+  "scripts": {
+    "coverage": "istanbul cover _mocha -- -R spec && rm -rf ./coverage",
+    "lint": "jshint *.js --exclude node_modules && jscs *.js",
+    "test": "npm run-script lint && mocha"
+  }
+}
