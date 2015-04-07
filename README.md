@@ -1,4 +1,4 @@
-#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coverall-image]][coverall-url]
+#  [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![Coverage Status][coveralls-image]][coveralls-url]
 
 > Get a compare function for array to sort
 
@@ -61,5 +61,5 @@ MIT © [Steve Mao](https://github.com/stevemao)
 [travis-url]: https://travis-ci.org/stevemao/compare-func
 [daviddm-image]: https://david-dm.org/stevemao/compare-func.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/stevemao/compare-func
-[coverall-image]: https://coveralls.io/repos/stevemao/compare-func/badge.svg
-[coverall-url]: https://coveralls.io/r/stevemao/compare-func
+[coveralls-image]: https://coveralls.io/repos/stevemao/compare-func/badge.svg
+[coveralls-url]: https://coveralls.io/r/stevemao/compare-func
