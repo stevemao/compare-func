@@ -1,30 +1,30 @@
 'use strict';
 var dotPropGet = require('dot-prop').get;
-var _ = require('lodash');
+var clone = require('clone');
 
 function compareFunc(prop) {
   return function(a, b) {
     var retNumber = 0;
 
-    _.each((_.isArray(prop) ? prop : [prop]), function(el) {
+    (Array.isArray(prop) ? prop : [prop]).some(function(el) {
       var newA;
       var newB;
 
-      if (_.isFunction(el)) {
+      if (typeof el === 'function') {
         newA = el(a);
         newB = el(b);
-      } else if (_.isString(el)) {
+      } else if (typeof el === 'string') {
         newA = dotPropGet(a, el);
         newB = dotPropGet(b, el);
       } else {
-        newA = _.cloneDeep(a);
-        newB = _.cloneDeep(b);
+        newA = clone(a);
+        newB = clone(b);
       }
 
-      if (_.isString(newA) && _.isString(newB)) {
+      if (typeof newA === 'string' && typeof newB === 'string') {
         retNumber = newA.localeCompare(newB);
         if (retNumber !== 0) {
-          return false;
+          return true;
         }
       }
 
@@ -32,10 +32,10 @@ function compareFunc(prop) {
         retNumber = 0;
       } else if (newA < newB) {
         retNumber = -1;
-        return false;
+        return true;
       } else if (newA > newB) {
         retNumber = 1;
-        return false;
+        return true;
       }
     });
 
