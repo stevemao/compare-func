@@ -1,5 +1,5 @@
 'use strict';
-var dotProp = require('dot-prop');
+var dotPropGet = require('dot-prop').get;
 var _ = require('lodash');
 
 function compareFunc(prop) {
@@ -14,8 +14,8 @@ function compareFunc(prop) {
         newA = el(a);
         newB = el(b);
       } else if (_.isString(el)) {
-        newA = dotProp.get(a, el);
-        newB = dotProp.get(b, el);
+        newA = dotPropGet(a, el);
+        newB = dotPropGet(b, el);
       } else {
         newA = _.cloneDeep(a);
         newB = _.cloneDeep(b);
