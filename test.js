@@ -2,7 +2,7 @@
 var assert = require('assert');
 var compareFunc = require('./');
 
-it('1', function() {
+it('should sort letters', function() {
   assert([{
     foo: 'b'
   }, {
@@ -12,7 +12,7 @@ it('1', function() {
   }].sort(compareFunc('foo'))[0].foo === 'a');
 });
 
-it('2', function() {
+it('should sort numbers', function() {
   assert([{
     foo: 2
   }, {
@@ -22,7 +22,7 @@ it('2', function() {
   }].sort(compareFunc('foo'))[0].foo === 1);
 });
 
-it('3', function() {
+it('should sort by an array of strings', function() {
   assert([{
     foo: 'b',
     bar: 'a'
@@ -38,7 +38,7 @@ it('3', function() {
   }].sort(compareFunc(['foo', 'bar']))[0].bar === 'b');
 });
 
-it('4', function() {
+it('should work with dot-prop', function() {
   assert([{
     foo: {
       bar: 'b'
@@ -54,7 +54,7 @@ it('4', function() {
   }].sort(compareFunc('foo.bar'))[0].foo.bar === 'a');
 });
 
-it('5', function() {
+it('should sort by a function', function() {
   assert([{
     foo: 'b'
   }, {
@@ -66,7 +66,7 @@ it('5', function() {
   }))[0].foo === 'a');
 });
 
-it('6', function() {
+it('should work if one object does not have this prop', function() {
   assert([{
     bar: 'b'
   }, {
@@ -76,7 +76,7 @@ it('6', function() {
   }].sort(compareFunc('foo'))[1].foo === 'a');
 });
 
-it('7', function() {
+it('should sort by an array of functions', function() {
   assert([{
     foo: 'b',
     bar: 'a'
@@ -96,6 +96,6 @@ it('7', function() {
   }]))[0].bar === 'b');
 });
 
-it('8', function() {
+it('should sort on itself if there are no args', function() {
   assert(['z', 'b', 'a'].sort(compareFunc())[0] === 'a');
 });
