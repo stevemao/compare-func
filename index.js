@@ -14,8 +14,8 @@ function compareFunc(prop) {
         newA = prop(a);
         newB = prop(b);
       } else if (_.isString(el)) {
-        newA = dotProp(a, el);
-        newB = dotProp(b, el);
+        newA = dotProp.get(a, el);
+        newB = dotProp.get(b, el);
       } else {
         newA = _.cloneDeep(a);
         newB = _.cloneDeep(b);
