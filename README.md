@@ -50,6 +50,11 @@ If missing it sorts on itself.
 The string can be a [dot path](https://github.com/sindresorhus/dot-prop) to a nested object property.
 
 
+## Related
+
+- [sort-on](https://github.com/sindresorhus/sort-on) - Sort an array on an object property
+
+
 ## License
 
 MIT © [Steve Mao](https://github.com/stevemao)
