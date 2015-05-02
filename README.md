@@ -28,8 +28,8 @@ var compareFunc = require('compare-func');
 //=> [{x: 'b', y: 'a'}, {x: 'b', y: 'b'}, {x: 'c', y: 'c'}]
 
 // sort by the returned value
-[{x: 'b'}, {x: 'a'}, {x: 'c'}].sort(compareFunc(function (el) {
-    return el.x;
+[{x: 'b'}, {x: 'a'}, {x: 'c'}].sort(compareFunc(function(el) {
+  return el.x;
 }));
 //=> [{x: 'a'}, {x: 'b'}, {x: 'c'}]
 ```
