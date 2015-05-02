@@ -11,8 +11,8 @@ function compareFunc(prop) {
       var newB;
 
       if (_.isFunction(el)) {
-        newA = prop(a);
-        newB = prop(b);
+        newA = el(a);
+        newB = el(b);
       } else if (_.isString(el)) {
         newA = dotProp.get(a, el);
         newB = dotProp.get(b, el);

@@ -43,7 +43,7 @@ Returns a compare function for array to sort
 
 #### property
 
-Type: `string`, `function` or `array` of the former
+Type: `string`, `function` or `array` of either
 
 If missing it sorts on itself.
 

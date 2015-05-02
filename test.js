@@ -25,17 +25,17 @@ it('2', function() {
 it('3', function() {
   assert([{
     foo: 'b',
-    bar: 'b'
-  }, {
-    foo: 'a',
-    bar: 'b'
-  }, {
-    foo: 'a',
     bar: 'a'
+  }, {
+    foo: 'a',
+    bar: 'c'
+  }, {
+    foo: 'a',
+    bar: 'b'
   }, {
     foo: 'c',
     bar: 'c'
-  }].sort(compareFunc(['foo', 'bar']))[0].bar === 'a');
+  }].sort(compareFunc(['foo', 'bar']))[0].bar === 'b');
 });
 
 it('4', function() {
@@ -79,17 +79,21 @@ it('6', function() {
 it('7', function() {
   assert([{
     foo: 'b',
-    bar: 'b'
-  }, {
-    foo: 'a',
-    bar: 'b'
-  }, {
-    foo: 'a',
     bar: 'a'
+  }, {
+    foo: 'a',
+    bar: 'b'
+  }, {
+    foo: 'a',
+    bar: 'c'
   }, {
     foo: 'c',
     bar: 'c'
-  }].sort(compareFunc(['foo', 'bar']))[0].bar === 'a');
+  }].sort(compareFunc([function(prop) {
+    return prop.foo;
+  }, function(prop) {
+    return prop.bar;
+  }]))[0].bar === 'b');
 });
 
 it('8', function() {
