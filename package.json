@@ -1,6 +1,6 @@
 {
   "name": "compare-func",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Get a compare function for array to sort",
   "homepage": "https://github.com/stevemao/compare-func",
   "author": {
