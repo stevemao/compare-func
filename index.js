@@ -6,8 +6,8 @@ function compareFunc(prop) {
     var ret = 0;
 
     (Array.isArray(prop) ? prop : [prop]).some(function(el) {
-      var x = a;
-      var y = b;
+      var x;
+      var y;
 
       if (typeof el === 'function') {
         x = el(a);
@@ -15,6 +15,9 @@ function compareFunc(prop) {
       } else if (typeof el === 'string') {
         x = dotPropGet(a, el);
         y = dotPropGet(b, el);
+      } else {
+        x = a;
+        y = b;
       }
 
       if (typeof x === 'string' && typeof y === 'string') {
