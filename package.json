@@ -29,7 +29,6 @@
     "sorting"
   ],
   "dependencies": {
-    "clone": "^1.0.2",
     "dot-prop": "^2.0.0"
   },
   "devDependencies": {

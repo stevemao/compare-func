@@ -1,45 +1,41 @@
 'use strict';
 var dotPropGet = require('dot-prop').get;
-var clone = require('clone');
 
 function compareFunc(prop) {
   return function(a, b) {
-    var retNumber = 0;
+    var ret = 0;
 
     (Array.isArray(prop) ? prop : [prop]).some(function(el) {
-      var newA;
-      var newB;
+      var x = a;
+      var y = b;
 
       if (typeof el === 'function') {
-        newA = el(a);
-        newB = el(b);
+        x = el(a);
+        y = el(b);
       } else if (typeof el === 'string') {
-        newA = dotPropGet(a, el);
-        newB = dotPropGet(b, el);
-      } else {
-        newA = clone(a);
-        newB = clone(b);
+        x = dotPropGet(a, el);
+        y = dotPropGet(b, el);
       }
 
-      if (typeof newA === 'string' && typeof newB === 'string') {
-        retNumber = newA.localeCompare(newB);
-        if (retNumber !== 0) {
+      if (typeof x === 'string' && typeof y === 'string') {
+        ret = x.localeCompare(y);
+        if (ret !== 0) {
           return true;
         }
       }
 
-      if (newA === newB) {
-        retNumber = 0;
-      } else if (newA < newB) {
-        retNumber = -1;
+      if (x === y) {
+        ret = 0;
+      } else if (x < y) {
+        ret = -1;
         return true;
-      } else if (newA > newB) {
-        retNumber = 1;
+      } else if (x > y) {
+        ret = 1;
         return true;
       }
     });
 
-    return retNumber;
+    return ret;
   };
 }
 
