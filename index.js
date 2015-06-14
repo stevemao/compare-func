@@ -20,22 +20,18 @@ function compareFunc(prop) {
         y = b;
       }
 
-      if (typeof x === 'string' && typeof y === 'string') {
-        ret = x.localeCompare(y);
-        if (ret !== 0) {
-          return true;
-        }
-      }
-
       if (x === y) {
         ret = 0;
-      } else if (x < y) {
-        ret = -1;
-        return true;
-      } else if (x > y) {
-        ret = 1;
-        return true;
+        return;
       }
+
+      if (typeof x === 'string' && typeof y === 'string') {
+        ret = x.localeCompare(y);
+        return ret !== 0;
+      }
+
+      ret = x < y ? -1 : 1;
+      return true;
     });
 
     return ret;

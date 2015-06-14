@@ -1,29 +1,29 @@
 'use strict';
-var assert = require('assert');
+var equal = require('assert').strictEqual;
 var compareFunc = require('./');
 
 it('should sort letters', function() {
-  assert([{
+  equal([{
     foo: 'b'
   }, {
     foo: 'a'
   }, {
     foo: 'c'
-  }].sort(compareFunc('foo'))[0].foo === 'a');
+  }].sort(compareFunc('foo'))[0].foo, 'a');
 });
 
 it('should sort numbers', function() {
-  assert([{
+  equal([{
     foo: 2
   }, {
     foo: 1
   }, {
     foo: 3
-  }].sort(compareFunc('foo'))[0].foo === 1);
+  }].sort(compareFunc('foo'))[0].foo, 1);
 });
 
 it('should sort by an array of strings', function() {
-  assert([{
+  equal([{
     foo: 'b',
     bar: 'a'
   }, {
@@ -35,11 +35,11 @@ it('should sort by an array of strings', function() {
   }, {
     foo: 'c',
     bar: 'c'
-  }].sort(compareFunc(['foo', 'bar']))[0].bar === 'b');
+  }].sort(compareFunc(['foo', 'bar']))[0].bar, 'b');
 });
 
 it('should work with dot-prop', function() {
-  assert([{
+  equal([{
     foo: {
       bar: 'b'
     }
@@ -51,11 +51,11 @@ it('should work with dot-prop', function() {
     foo: {
       bar: 'c'
     }
-  }].sort(compareFunc('foo.bar'))[0].foo.bar === 'a');
+  }].sort(compareFunc('foo.bar'))[0].foo.bar, 'a');
 });
 
 it('should sort by a function', function() {
-  assert([{
+  equal([{
     foo: 'b'
   }, {
     foo: 'a'
@@ -63,21 +63,24 @@ it('should sort by a function', function() {
     foo: 'c'
   }].sort(compareFunc(function(prop) {
     return prop.foo;
-  }))[0].foo === 'a');
+  }))[0].foo, 'a');
 });
 
 it('should work if one object does not have this prop', function() {
-  assert([{
+  var sorted = [{
     bar: 'b'
   }, {
     foo: 'b'
   }, {
     foo: 'a'
-  }].sort(compareFunc('foo'))[1].foo === 'a');
+  }].sort(compareFunc('foo'));
+
+  // {bar: 'b'} is not sorted so it might be the first or the second element
+  equal(sorted[0].foo || sorted[1].foo, 'a');
 });
 
 it('should sort by an array of functions', function() {
-  assert([{
+  equal([{
     foo: 'b',
     bar: 'a'
   }, {
@@ -93,9 +96,9 @@ it('should sort by an array of functions', function() {
     return prop.foo;
   }, function(prop) {
     return prop.bar;
-  }]))[0].bar === 'b');
+  }]))[0].bar, 'b');
 });
 
 it('should sort on itself if there are no args', function() {
-  assert(['z', 'b', 'a'].sort(compareFunc())[0] === 'a');
+  equal(['z', 'b', 'a'].sort(compareFunc())[0], 'a');
 });
