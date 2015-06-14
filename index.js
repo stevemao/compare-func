@@ -1,11 +1,12 @@
 'use strict';
+var arrayify = require('array-ify');
 var dotPropGet = require('dot-prop').get;
 
 function compareFunc(prop) {
   return function(a, b) {
     var ret = 0;
 
-    (Array.isArray(prop) ? prop : [prop]).some(function(el) {
+    arrayify(prop).some(function(el) {
       var x;
       var y;
 
