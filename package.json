@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "array-ify": "^1.0.0",
-    "dot-prop": "^3.0.0"
+    "dot-prop": "^5.1.0"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
