@@ -13,6 +13,10 @@
   "files": [
     "index.js"
   ],
+  "engines": {
+    "node": ">=12.20"
+  },
+  "type": "module",
   "keywords": [
     "compare-func",
     "arr",
@@ -29,19 +33,16 @@
     "sorting"
   ],
   "dependencies": {
-    "array-ify": "^1.0.0",
-    "dot-prop": "^5.2.0"
-  },
-  "devDependencies": {
-    "coveralls": "^2.11.2",
-    "istanbul": "^0.4.4",
-    "jscs": "^3.0.5",
-    "jshint": "^2.7.0",
-    "mocha": "^7.1.2"
+    "dot-prop": "^6.0.1"
   },
   "scripts": {
     "coverage": "istanbul cover _mocha -- -R spec && rm -rf ./coverage",
-    "lint": "jshint *.js --exclude node_modules && jscs *.js",
+    "lint": "jshint *.js --exclude node_modules",
     "test": "npm run-script lint && mocha"
+  },
+  "devDependencies": {
+    "coveralls": "^3.1.1",
+    "jshint": "^2.13.1",
+    "mocha": "^9.0.3"
   }
 }
