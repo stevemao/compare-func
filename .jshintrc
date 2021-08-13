@@ -8,6 +8,7 @@
   "mocha" : true,
   "newcap": true,
   "noarg": true,
+  "esversion": 6,
   "node": true,
   "sub": true,
   "undef": true,

@@ -1,14 +1,14 @@
-'use strict';
-var arrayify = require('array-ify');
-var dotPropGet = require('dot-prop').get;
+import { get as dotPropGet } from 'dot-prop';
+
+const arrayify = x => Array.isArray(x) ? x : [x];
 
 function compareFunc(prop) {
-  return function(a, b) {
-    var ret = 0;
+  return (a, b) => {
+    let ret = 0;
 
-    arrayify(prop).some(function(el) {
-      var x;
-      var y;
+    arrayify(prop).some(el => {
+      let x;
+      let y;
 
       if (typeof el === 'function') {
         x = el(a);
@@ -39,4 +39,4 @@ function compareFunc(prop) {
   };
 }
 
-module.exports = compareFunc;
+export default compareFunc;

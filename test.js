@@ -1,6 +1,5 @@
-'use strict';
-var equal = require('assert').strictEqual;
-var compareFunc = require('./');
+import { strictEqual as equal } from 'node:assert';
+import compareFunc from './index.js';
 
 it('should sort letters', function() {
   equal([{
