@@ -33,7 +33,7 @@
     "sorting"
   ],
   "dependencies": {
-    "dot-prop": "^6.0.1"
+    "dot-prop": "^7.2.0"
   },
   "scripts": {
     "coverage": "istanbul cover _mocha -- -R spec && rm -rf ./coverage",
