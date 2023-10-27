@@ -1,4 +1,4 @@
-import { get as dotPropGet } from 'dot-prop';
+import { getProperty } from 'dot-prop';
 
 const arrayify = x => Array.isArray(x) ? x : [x];
 
@@ -14,8 +14,8 @@ function compareFunc(prop) {
         x = el(a);
         y = el(b);
       } else if (typeof el === 'string') {
-        x = dotPropGet(a, el);
-        y = dotPropGet(b, el);
+        x = getProperty(a, el);
+        y = getProperty(b, el);
       } else {
         x = a;
         y = b;
